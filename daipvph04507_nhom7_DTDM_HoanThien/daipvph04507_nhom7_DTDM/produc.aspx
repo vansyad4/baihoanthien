@@ -310,7 +310,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix">
 
                      
-
+                        <asp:DetailsView ID="DetailsView1" runat="server" Height="141px" Width="220px" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="MaSp" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <CommandRowStyle BackColor="#C5BBAF" Font-Bold="True" />
+                            <EditRowStyle BackColor="#7C6F57" />
+                            <FieldHeaderStyle BackColor="#D0D0D0" Font-Bold="True" />
+                            <Fields>
+                                <asp:BoundField DataField="MaSp" HeaderText="MaSp" ReadOnly="True" SortExpression="MaSp" />
+                                <asp:BoundField DataField="TenSp" HeaderText="TenSp" SortExpression="TenSp" />
+                                <asp:BoundField DataField="DonGia" HeaderText="DonGia" SortExpression="DonGia" />
+                                <asp:BoundField DataField="KhuyenMai" HeaderText="KhuyenMai" SortExpression="KhuyenMai" />
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+                            </Fields>
+                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#E3EAEB" />
+                        </asp:DetailsView>
+					    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Nhom7ConnectionString %>" DeleteCommand="DELETE FROM [SanPham] WHERE [MaSp] = @MaSp" InsertCommand="INSERT INTO [SanPham] ([MaSp], [TenSp], [DonGia], [KhuyenMai]) VALUES (@MaSp, @TenSp, @DonGia, @KhuyenMai)" SelectCommand="SELECT [MaSp], [TenSp], [DonGia], [KhuyenMai] FROM [SanPham]" UpdateCommand="UPDATE [SanPham] SET [TenSp] = @TenSp, [DonGia] = @DonGia, [KhuyenMai] = @KhuyenMai WHERE [MaSp] = @MaSp">
+                            <DeleteParameters>
+                                <asp:Parameter Name="MaSp" Type="String" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="MaSp" Type="String" />
+                                <asp:Parameter Name="TenSp" Type="String" />
+                                <asp:Parameter Name="DonGia" Type="Int32" />
+                                <asp:Parameter Name="KhuyenMai" Type="String" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="TenSp" Type="String" />
+                                <asp:Parameter Name="DonGia" Type="Int32" />
+                                <asp:Parameter Name="KhuyenMai" Type="String" />
+                                <asp:Parameter Name="MaSp" Type="String" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 					</div>
 					</div>
 			</div>
